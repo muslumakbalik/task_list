@@ -1,0 +1,12 @@
+../Core/Src/freertos.c:125:13:configureTimerForRunTimeStats	1
+../Core/Src/freertos.c:131:22:getRunTimeCounterValue	1
+../Core/Src/freertos.c:138:6:vApplicationIdleHook	1
+../Core/Src/freertos.c:155:6:vApplicationTickHook	1
+../Core/Src/freertos.c:166:6:vApplicationStackOverflowHook	1
+../Core/Src/freertos.c:175:6:vApplicationMallocFailedHook	1
+../Core/Src/freertos.c:191:6:vApplicationDaemonTaskStartupHook	1
+../Core/Src/freertos.c:201:6:MX_FREERTOS_Init	1
+../Core/Src/freertos.c:252:6:StartmyTask01	1
+../Core/Src/freertos.c:273:6:StartTask03	2
+../Core/Src/freertos.c:295:6:StartTask02	2
+../Core/Src/freertos.c:315:6:StartTask04	1

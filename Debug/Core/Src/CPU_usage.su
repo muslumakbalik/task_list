@@ -1,0 +1,4 @@
+../Core/Src/CPU_usage.c:21:1:__io_putchar	16	static
+../Core/Src/CPU_usage.c:28:6:configureTimerForRunTimeStats	4	static
+../Core/Src/CPU_usage.c:33:15:getRunTimeCounterValue	8	static
+../Core/Src/CPU_usage.c:38:6:CPU_usage	32	static
