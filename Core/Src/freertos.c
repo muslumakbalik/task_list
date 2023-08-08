@@ -277,6 +277,7 @@ void StartTask03(void *argument)
   /* Infinite loop */
   for(;;)
   {
+	  HAL_UART_Receive(&huart3, &input,1, 5000);
 	 if(HAL_UART_Receive(&huart3, &input,1, 5000) == HAL_OK)
 		 printf("%c \r \n",input);
      osDelay(1000);
@@ -295,10 +296,11 @@ void StartTask03(void *argument)
 void StartTask02(void *argument)
 {
   /* USER CODE BEGIN StartTask02 */
+
   /* Infinite loop */
-	for(int x=0;x<1000;x++)
+	for(;;)
 	{
-	HAL_GPIO_TogglePin(LD1_GPIO_Port, LD1_Pin);
+
 	osDelay(1000);
 	}
 	vTaskDelete(myTask02Handle);

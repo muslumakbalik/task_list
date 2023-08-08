@@ -37,16 +37,16 @@ unsigned long getRunTimeCounterValue(void)
 
 void CPU_usage(void)
 {
-	TaskStatus_t *TaskStatusArray; //istatistikleri depolamak için gereken dizi
+	TaskStatus_t *TaskStatusArray; //needed to store statistics
 	volatile UBaseType_t ArraySize,x,TaskCount;
-	unsigned long TotalRunTime;//toplam çalışma süresi
+	unsigned long TotalRunTime;//total working time
 
-	ArraySize=uxTaskGetNumberOfTasks(); //görev sayısı
-	TaskStatusArray=pvPortMalloc(ArraySize * sizeof(TaskStatus_t)); //İstatistikleri depolamak için ayrılan bellek
+	ArraySize=uxTaskGetNumberOfTasks(); //number of task
+	TaskStatusArray=pvPortMalloc(ArraySize * sizeof(TaskStatus_t)); //Memory allocated for storing statistics
 
 	if(TaskStatusArray != NULL)
 	{
-	ArraySize=uxTaskGetSystemState(TaskStatusArray, ArraySize, &TotalRunTime); //Tüm istatistikleri al ve çalışma süresini elde et
+	ArraySize=uxTaskGetSystemState(TaskStatusArray, ArraySize, &TotalRunTime); //Get all stats and get uptime
 
 
 		for(x=0;x< ArraySize;x++)
@@ -60,7 +60,5 @@ void CPU_usage(void)
 	}
 	vPortFree(TaskStatusArray);
 }
-
-
 
 
