@@ -28,6 +28,7 @@
 #include "stdio.h"
 #include "CPU_usage.h"
 #include "usart.h"
+#include "timers.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -39,7 +40,7 @@ typedef StaticTask_t osStaticThreadDef_t;
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-uint32_t IdleCounter;
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -76,7 +77,7 @@ const osThreadAttr_t myTask03_attributes = {
 };
 /* Definitions for myTask02 */
 osThreadId_t myTask02Handle;
-uint32_t myTask02Buffer[ 128 ];
+uint32_t myTask02Buffer[ 4 *128 ];
 osStaticThreadDef_t myTask02ControlBlock;
 const osThreadAttr_t myTask02_attributes = {
   .name = "myTask02",
@@ -88,7 +89,7 @@ const osThreadAttr_t myTask02_attributes = {
 };
 /* Definitions for myTask04 */
 osThreadId_t myTask04Handle;
-uint32_t myTask04Buffer[ 1024 ];
+uint32_t myTask04Buffer[ 2* 1024 ];
 osStaticThreadDef_t myTask04ControlBlock;
 const osThreadAttr_t myTask04_attributes = {
   .name = "myTask04",
@@ -135,9 +136,29 @@ __weak unsigned long getRunTimeCounterValue(void)
 /* USER CODE END 1 */
 
 /* USER CODE BEGIN 2 */
+
+
 void vApplicationIdleHook( void )
 {
 
+
+//	if (idleStartTime == 0)
+//	{
+//	        idleStartTime = xTaskGetTickCount();
+//	}
+//	else
+//	{
+//
+//			idleEndTime = xTaskGetTickCount();
+//
+//
+//	        TickType_t idleTime = idleEndTime - idleStartTime;
+//	        totalIdleTime += idleTime;
+//
+//
+//	        idleStartTime = 0;
+//	        idleEndTime = 0;
+//	 }
 
    /* vApplicationIdleHook() will only be called if configUSE_IDLE_HOOK is set
    to 1 in FreeRTOSConfig.h. It will be called on each iteration of the idle
@@ -152,8 +173,13 @@ void vApplicationIdleHook( void )
 /* USER CODE END 2 */
 
 /* USER CODE BEGIN 3 */
+TickType_t tickcounter=0,tick1=0,tick2=0;
 void vApplicationTickHook( void )
 {
+
+	tickcounter++;
+
+
    /* This function will be called by each tick interrupt if
    configUSE_TICK_HOOK is set to 1 in FreeRTOSConfig.h. User code can be
    added here, but the tick hook is called from an interrupt context, so
@@ -252,13 +278,21 @@ void MX_FREERTOS_Init(void) {
 void StartmyTask01(void *argument)
 {
   /* USER CODE BEGIN StartmyTask01 */
-
+	TickType_t starttime=0,stoptime=0;
+	int x=0;
   /* Infinite loop */
   for(;;)
   {
+	  x++;
+	starttime=xTaskGetTickCount();
 	CPU_usage();
 	printf("************************************** \r \n");
-    osDelay(1000);
+
+	stoptime=xTaskGetTickCount()-starttime;
+
+	osDelay(1000);
+	printf("-----for Task01-----\r\n");
+	CPU_Load1(stoptime, tickcounter,x);
   }
   /* USER CODE END StartmyTask01 */
 }
@@ -273,14 +307,16 @@ void StartmyTask01(void *argument)
 void StartTask03(void *argument)
 {
   /* USER CODE BEGIN StartTask03 */
-  uint8_t input;
+	TickType_t starttime=0,stoptime=0;
   /* Infinite loop */
   for(;;)
   {
-	  HAL_UART_Receive(&huart3, &input,1, 5000);
-	 if(HAL_UART_Receive(&huart3, &input,1, 5000) == HAL_OK)
-		 printf("%c \r \n",input);
-     osDelay(1000);
+	  starttime=xTaskGetTickCount();
+	  osDelay(1000);
+	  stoptime=xTaskGetTickCount()-starttime;
+	  osDelay(1000);
+//	  printf("-----for Task03-----\r\n");
+//	  CPU_Load1(stoptime, tickcounter);
   }
 
   /* USER CODE END StartTask03 */
@@ -297,13 +333,26 @@ void StartTask02(void *argument)
 {
   /* USER CODE BEGIN StartTask02 */
 
+	TickType_t starttime=0,stoptime=0;
+
   /* Infinite loop */
+	char buffer[250];
 	for(;;)
 	{
+	starttime=xTaskGetTickCount();
 
+	printf("************************************** \r \n");
+	vTaskGetRunTimeStats(buffer);
+	printf("%s",buffer);
+	printf("************************************** \r \n");
+
+	stoptime=xTaskGetTickCount()-starttime;
 	osDelay(1000);
+//	printf("-----for Task02-----\r\n");
+//	CPU_Load1(stoptime, tickcounter);
+
 	}
-	vTaskDelete(myTask02Handle);
+
   /* USER CODE END StartTask02 */
 }
 
@@ -317,17 +366,25 @@ void StartTask02(void *argument)
 void StartTask04(void *argument)
 {
   /* USER CODE BEGIN StartTask04 */
-
+	TickType_t starttime=0,stoptime=0;
 	char buffer[250];
+	int x=0;
   /* Infinite loop */
   for(;;)
   {
+	starttime=xTaskGetTickCount();
+	x++;
 	printf("************************************** \r\n");
 	printf("TASK         STATE     PRIO    STACK   NUM \r\n");
 	vTaskList(buffer);
 	printf("%s",buffer);
 	printf("************************************** \r\n");
+
+    stoptime=xTaskGetTickCount()-starttime;
     osDelay(1000);
+    printf("-----for Task04-----\r\n");
+    CPU_Load1(stoptime, tickcounter,x);
+
   }
   /* USER CODE END StartTask04 */
 }
