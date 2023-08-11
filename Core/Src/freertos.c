@@ -61,7 +61,7 @@ const osThreadAttr_t myTask01_attributes = {
   .cb_size = sizeof(myTask01ControlBlock),
   .stack_mem = &defaultmyTask01[0],
   .stack_size = sizeof(defaultmyTask01),
-  .priority = (osPriority_t) osPriorityRealtime,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for myTask03 */
 osThreadId_t myTask03Handle;
@@ -73,11 +73,11 @@ const osThreadAttr_t myTask03_attributes = {
   .cb_size = sizeof(myTask03ControlBlock),
   .stack_mem = &myTask03Buffer[0],
   .stack_size = sizeof(myTask03Buffer),
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for myTask02 */
 osThreadId_t myTask02Handle;
-uint32_t myTask02Buffer[ 4 *128 ];
+uint32_t myTask02Buffer[ 128 ];
 osStaticThreadDef_t myTask02ControlBlock;
 const osThreadAttr_t myTask02_attributes = {
   .name = "myTask02",
@@ -89,7 +89,7 @@ const osThreadAttr_t myTask02_attributes = {
 };
 /* Definitions for myTask04 */
 osThreadId_t myTask04Handle;
-uint32_t myTask04Buffer[ 2* 1024 ];
+uint32_t myTask04Buffer[ 1024 ];
 osStaticThreadDef_t myTask04ControlBlock;
 const osThreadAttr_t myTask04_attributes = {
   .name = "myTask04",
@@ -97,7 +97,7 @@ const osThreadAttr_t myTask04_attributes = {
   .cb_size = sizeof(myTask04ControlBlock),
   .stack_mem = &myTask04Buffer[0],
   .stack_size = sizeof(myTask04Buffer),
-  .priority = (osPriority_t) osPriorityBelowNormal,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 
 /* Private function prototypes -----------------------------------------------*/
@@ -142,24 +142,6 @@ void vApplicationIdleHook( void )
 {
 
 
-//	if (idleStartTime == 0)
-//	{
-//	        idleStartTime = xTaskGetTickCount();
-//	}
-//	else
-//	{
-//
-//			idleEndTime = xTaskGetTickCount();
-//
-//
-//	        TickType_t idleTime = idleEndTime - idleStartTime;
-//	        totalIdleTime += idleTime;
-//
-//
-//	        idleStartTime = 0;
-//	        idleEndTime = 0;
-//	 }
-
    /* vApplicationIdleHook() will only be called if configUSE_IDLE_HOOK is set
    to 1 in FreeRTOSConfig.h. It will be called on each iteration of the idle
    task. It is essential that code added to this hook function never attempts
@@ -173,7 +155,7 @@ void vApplicationIdleHook( void )
 /* USER CODE END 2 */
 
 /* USER CODE BEGIN 3 */
-TickType_t tickcounter=0,tick1=0,tick2=0;
+TickType_t tickcounter=0;
 void vApplicationTickHook( void )
 {
 
@@ -278,21 +260,14 @@ void MX_FREERTOS_Init(void) {
 void StartmyTask01(void *argument)
 {
   /* USER CODE BEGIN StartmyTask01 */
-	TickType_t starttime=0,stoptime=0;
-	int x=0;
   /* Infinite loop */
   for(;;)
   {
-	  x++;
-	starttime=xTaskGetTickCount();
 	CPU_usage();
 	printf("************************************** \r \n");
-
-	stoptime=xTaskGetTickCount()-starttime;
-
 	osDelay(1000);
-	printf("-----for Task01-----\r\n");
-	CPU_Load1(stoptime, tickcounter,x);
+
+
   }
   /* USER CODE END StartmyTask01 */
 }
@@ -307,16 +282,12 @@ void StartmyTask01(void *argument)
 void StartTask03(void *argument)
 {
   /* USER CODE BEGIN StartTask03 */
-	TickType_t starttime=0,stoptime=0;
   /* Infinite loop */
   for(;;)
   {
-	  starttime=xTaskGetTickCount();
+
 	  osDelay(1000);
-	  stoptime=xTaskGetTickCount()-starttime;
-	  osDelay(1000);
-//	  printf("-----for Task03-----\r\n");
-//	  CPU_Load1(stoptime, tickcounter);
+
   }
 
   /* USER CODE END StartTask03 */
@@ -332,24 +303,12 @@ void StartTask03(void *argument)
 void StartTask02(void *argument)
 {
   /* USER CODE BEGIN StartTask02 */
-
-	TickType_t starttime=0,stoptime=0;
-
   /* Infinite loop */
-	char buffer[250];
 	for(;;)
 	{
-	starttime=xTaskGetTickCount();
 
-	printf("************************************** \r \n");
-	vTaskGetRunTimeStats(buffer);
-	printf("%s",buffer);
-	printf("************************************** \r \n");
+	osDelay(1);
 
-	stoptime=xTaskGetTickCount()-starttime;
-	osDelay(1000);
-//	printf("-----for Task02-----\r\n");
-//	CPU_Load1(stoptime, tickcounter);
 
 	}
 
@@ -366,24 +325,17 @@ void StartTask02(void *argument)
 void StartTask04(void *argument)
 {
   /* USER CODE BEGIN StartTask04 */
-	TickType_t starttime=0,stoptime=0;
-	char buffer[250];
-	int x=0;
+//	char buffer[250];
   /* Infinite loop */
   for(;;)
   {
-	starttime=xTaskGetTickCount();
-	x++;
-	printf("************************************** \r\n");
-	printf("TASK         STATE     PRIO    STACK   NUM \r\n");
-	vTaskList(buffer);
-	printf("%s",buffer);
-	printf("************************************** \r\n");
-
-    stoptime=xTaskGetTickCount()-starttime;
-    osDelay(1000);
-    printf("-----for Task04-----\r\n");
-    CPU_Load1(stoptime, tickcounter,x);
+	 CPU_Load(400,1000);
+//	printf("************************************** \r\n");
+//	printf("TASK         STATE     PRIO    STACK   NUM \r\n");
+//	vTaskList(buffer);
+//	printf("%s",buffer);
+//	printf("************************************** \r\n");
+	 osDelay(1);
 
   }
   /* USER CODE END StartTask04 */
