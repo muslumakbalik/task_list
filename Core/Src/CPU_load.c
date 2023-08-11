@@ -29,7 +29,7 @@ void CPU_Load(TickType_t BlockRate , TickType_t TotalRunTime)
 		start_time = osKernelGetTickCount();
 
 	}
-	osDelay(TotalRunTime);
+	osDelay(TotalRunTime-BlockRate);
 
 
 }

@@ -52,9 +52,9 @@ void CPU_usage(void)
 
 		for(x=0;x< ArraySize;x++)
 		{
-			printf("Task: %s\t\t CPU Usage: %% %.4f \r \n",
+			printf("Task: %s\t\t CPU Usage: %% %u \r \n",
 			       TaskStatusArray[x].pcTaskName,
-			      ((float)TaskStatusArray[x].ulRunTimeCounter * 100) / TotalRunTime);
+			      (TaskStatusArray[x].ulRunTimeCounter * 100) / TotalRunTime);
 
 		}
 

@@ -329,7 +329,7 @@ void StartTask04(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	 CPU_Load(400,1000);
+	 CPU_Load(700,1000);
 //	printf("************************************** \r\n");
 //	printf("TASK         STATE     PRIO    STACK   NUM \r\n");
 //	vTaskList(buffer);
