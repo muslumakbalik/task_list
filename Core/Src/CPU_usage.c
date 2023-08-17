@@ -8,22 +8,10 @@
 #include "cmsis_os.h"
 #include "usart.h"
 #include "stdio.h"
+#include "string.h"
+#include "CLI.h"
 
-#ifdef __GNUC__
-
-    #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
- #else
-
-    #define PUTCHAR_PROTOTYPE int fputc(int ch,FILE *f)
- #endif
-
-void CPU_usage(void);
-
-PUTCHAR_PROTOTYPE
-{
-	HAL_UART_Transmit(&huart3, (uint8_t *)&ch, 1, 0xFFF);
-	return ch;
-}
+void CPU_usage();
 
 
 void configureTimerForRunTimeStats(void)
@@ -36,12 +24,12 @@ unsigned long getRunTimeCounterValue(void)
 	return osKernelGetTickCount();
 }
 
-void CPU_usage(void)
+void CPU_usage()
 {
+
 	TaskStatus_t *TaskStatusArray; //needed to store statistics
 	volatile UBaseType_t ArraySize,x,TaskCount;
 	unsigned long TotalRunTime;//total working time
-
 	ArraySize=uxTaskGetNumberOfTasks(); //number of task
 	TaskStatusArray=pvPortMalloc(ArraySize * sizeof(TaskStatus_t)); //Memory allocated for storing statistics
 
@@ -52,14 +40,16 @@ void CPU_usage(void)
 
 		for(x=0;x< ArraySize;x++)
 		{
+
 			printf("Task: %s\t\t CPU Usage: %% %u \r \n",
-			       TaskStatusArray[x].pcTaskName,
+					TaskStatusArray[x].pcTaskName,
 			      (TaskStatusArray[x].ulRunTimeCounter * 100) / TotalRunTime);
 
 		}
 
 	}
-	vPortFree(TaskStatusArray);
+	vPortFree(TaskStatusArray); //memory is freed
+
 }
 
 

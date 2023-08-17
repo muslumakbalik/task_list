@@ -1,3 +1,4 @@
+"./Core/Src/CLI.o"
 "./Core/Src/CPU_load.o"
 "./Core/Src/CPU_usage.o"
 "./Core/Src/eth.o"

@@ -49,7 +49,8 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
  C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
  ../Core/Inc/CPU_usage.h ../Core/Inc/usart.h ../Core/Inc/main.h \
  C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
- C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+ C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ ../Core/Inc/CLI.h
 C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
 C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
@@ -104,3 +105,4 @@ C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cms
 ../Core/Inc/main.h:
 C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
 C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+../Core/Inc/CLI.h:

@@ -29,6 +29,7 @@
 #include "CPU_usage.h"
 #include "usart.h"
 #include "timers.h"
+#include "CLI.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -65,7 +66,7 @@ const osThreadAttr_t myTask01_attributes = {
 };
 /* Definitions for myTask03 */
 osThreadId_t myTask03Handle;
-uint32_t myTask03Buffer[ 128 ];
+uint32_t myTask03Buffer[ 1024 ];
 osStaticThreadDef_t myTask03ControlBlock;
 const osThreadAttr_t myTask03_attributes = {
   .name = "myTask03",
@@ -77,7 +78,7 @@ const osThreadAttr_t myTask03_attributes = {
 };
 /* Definitions for myTask02 */
 osThreadId_t myTask02Handle;
-uint32_t myTask02Buffer[ 128 ];
+uint32_t myTask02Buffer[ 1024 ];
 osStaticThreadDef_t myTask02ControlBlock;
 const osThreadAttr_t myTask02_attributes = {
   .name = "myTask02",
@@ -99,6 +100,25 @@ const osThreadAttr_t myTask04_attributes = {
   .stack_size = sizeof(myTask04Buffer),
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for myTask05 */
+osThreadId_t myTask05Handle;
+uint32_t myTask05Buffer[ 1024 ];
+osStaticThreadDef_t myTask05ControlBlock;
+const osThreadAttr_t myTask05_attributes = {
+  .name = "myTask05",
+  .cb_mem = &myTask05ControlBlock,
+  .cb_size = sizeof(myTask05ControlBlock),
+  .stack_mem = &myTask05Buffer[0],
+  .stack_size = sizeof(myTask05Buffer),
+  .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for myTask06 */
+osThreadId_t myTask06Handle;
+const osThreadAttr_t myTask06_attributes = {
+  .name = "myTask06",
+  .stack_size = 1024,
+  .priority = (osPriority_t) osPriorityLow,
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -109,6 +129,8 @@ void StartmyTask01(void *argument);
 void StartTask03(void *argument);
 void StartTask02(void *argument);
 void StartTask04(void *argument);
+void StartTask05(void *argument);
+void StartTask06(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -225,6 +247,7 @@ void MX_FREERTOS_Init(void) {
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
+//	setbuf(stdout, NULL);
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
@@ -240,6 +263,12 @@ void MX_FREERTOS_Init(void) {
   /* creation of myTask04 */
   myTask04Handle = osThreadNew(StartTask04, NULL, &myTask04_attributes);
 
+  /* creation of myTask05 */
+  myTask05Handle = osThreadNew(StartTask05, NULL, &myTask05_attributes);
+
+  /* creation of myTask06 */
+  myTask06Handle = osThreadNew(StartTask06, NULL, &myTask06_attributes);
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -251,6 +280,11 @@ void MX_FREERTOS_Init(void) {
 }
 
 /* USER CODE BEGIN Header_StartmyTask01 */
+int __io_putchar(int ch)
+{
+      HAL_UART_Transmit(&huart3, (uint8_t *)&ch, 1, 100);
+      return ch;
+}
 /**
   * @brief  Function implementing the myTask01 thread.
   * @param  argument: Not used
@@ -263,10 +297,8 @@ void StartmyTask01(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	CPU_usage();
-	printf("************************************** \r \n");
+	CLI_Command();
 	osDelay(1000);
-
 
   }
   /* USER CODE END StartmyTask01 */
@@ -285,9 +317,7 @@ void StartTask03(void *argument)
   /* Infinite loop */
   for(;;)
   {
-
 	  osDelay(1000);
-
   }
 
   /* USER CODE END StartTask03 */
@@ -306,10 +336,7 @@ void StartTask02(void *argument)
   /* Infinite loop */
 	for(;;)
 	{
-
-	osDelay(1);
-
-
+	osDelay(1000);
 	}
 
   /* USER CODE END StartTask02 */
@@ -325,20 +352,50 @@ void StartTask02(void *argument)
 void StartTask04(void *argument)
 {
   /* USER CODE BEGIN StartTask04 */
-//	char buffer[250];
   /* Infinite loop */
   for(;;)
   {
-	 CPU_Load(700,1000);
-//	printf("************************************** \r\n");
-//	printf("TASK         STATE     PRIO    STACK   NUM \r\n");
-//	vTaskList(buffer);
-//	printf("%s",buffer);
-//	printf("************************************** \r\n");
-	 osDelay(1);
 
+	osDelay(1000);
   }
+
   /* USER CODE END StartTask04 */
+}
+
+/* USER CODE BEGIN Header_StartTask05 */
+/**
+* @brief Function implementing the myTask05 thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartTask05 */
+void StartTask05(void *argument)
+{
+  /* USER CODE BEGIN StartTask05 */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1000);
+  }
+  /* USER CODE END StartTask05 */
+}
+
+/* USER CODE BEGIN Header_StartTask06 */
+/**
+* @brief Function implementing the myTask06 thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartTask06 */
+void StartTask06(void *argument)
+{
+  /* USER CODE BEGIN StartTask06 */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END StartTask06 */
 }
 
 /* Private application code --------------------------------------------------*/
