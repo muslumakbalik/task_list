@@ -99,7 +99,7 @@ int main(void)
   MX_USART3_UART_Init();
   MX_USB_OTG_FS_PCD_Init();
   /* USER CODE BEGIN 2 */
-
+  setbuf(stdout,NULL);
   /* USER CODE END 2 */
 
   /* Init scheduler */

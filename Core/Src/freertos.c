@@ -54,7 +54,7 @@ typedef StaticTask_t osStaticThreadDef_t;
 /* USER CODE END Variables */
 /* Definitions for myTask01 */
 osThreadId_t myTask01Handle;
-uint32_t defaultmyTask01[ 1024 ];
+uint32_t defaultmyTask01[ 4 * 1024 ];
 osStaticThreadDef_t myTask01ControlBlock;
 const osThreadAttr_t myTask01_attributes = {
   .name = "myTask01",
@@ -298,8 +298,8 @@ void StartmyTask01(void *argument)
   for(;;)
   {
 	CLI_Command();
-	osDelay(1000);
 
+	osDelay(1000);
   }
   /* USER CODE END StartmyTask01 */
 }

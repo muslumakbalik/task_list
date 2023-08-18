@@ -13,9 +13,6 @@
 
 void CPU_Load(TickType_t BlockRate , TickType_t TotalRunTime)
 {
-
-
-
 	TickType_t start_time,start_time1,block_time = (TotalRunTime * BlockRate) / 100;
 	start_time = osKernelGetTickCount();
 	start_time1 = osKernelGetTickCount();
