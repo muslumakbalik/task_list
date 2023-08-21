@@ -28,32 +28,31 @@ void CPU_Load(TickType_t BlockRate , TickType_t TotalRunTime)
 
 
 
-
-TickType_t tickarray[100];
-void CPU_Usage1(TickType_t stop_time, TickType_t Total_Tick, uint8_t x)
-{
-	uint64_t averagetick;
-	uint8_t CPU_Load_Percentage;
-
-	tickarray[x] = Total_Tick;
-	if(x == 0)
-	{
-		averagetick = tickarray[x];
-		CPU_Load_Percentage = (stop_time * 100) / averagetick;
-		printf("-time-%lu--\r\n", stop_time);
-		printf("-Percentage-%u--\r\n", CPU_Load_Percentage);
-		printf("---tick--- %u---\r\n", averagetick);
-	}
-	else
-	{
-		averagetick = tickarray[x]-tickarray[x-1];
-    	CPU_Load_Percentage = (stop_time * 100) / averagetick;
-    	printf("-time-%lu--\r\n",stop_time);
-    	printf("-Percentage-%u--\r\n", CPU_Load_Percentage);
-    	printf("---tick--- %u---\r\n", averagetick);
-	}
-
-
-
-
-}
+//TickType_t tickarray[100];
+//void CPU_Usage1(TickType_t stop_time, TickType_t Total_Tick, uint8_t x)
+//{
+//	uint64_t averagetick;
+//	uint8_t CPU_Load_Percentage;
+//
+//	tickarray[x] = Total_Tick;
+//	if(x == 0)
+//	{
+//		averagetick = tickarray[x];
+//		CPU_Load_Percentage = (stop_time * 100) / averagetick;
+//		printf("-time-%lu--\r\n", stop_time);
+//		printf("-Percentage-%u--\r\n", CPU_Load_Percentage);
+//		printf("---tick--- %u---\r\n", averagetick);
+//	}
+//	else
+//	{
+//		averagetick = tickarray[x]-tickarray[x-1];
+//    	CPU_Load_Percentage = (stop_time * 100) / averagetick;
+//    	printf("-time-%lu--\r\n",stop_time);
+//    	printf("-Percentage-%u--\r\n", CPU_Load_Percentage);
+//    	printf("---tick--- %u---\r\n", averagetick);
+//	}
+//
+//
+//
+//
+//}

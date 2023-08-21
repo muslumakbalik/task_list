@@ -30,6 +30,7 @@
 #include "usart.h"
 #include "timers.h"
 #include "CLI.h"
+#include "taskstatus.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -54,7 +55,7 @@ typedef StaticTask_t osStaticThreadDef_t;
 /* USER CODE END Variables */
 /* Definitions for myTask01 */
 osThreadId_t myTask01Handle;
-uint32_t defaultmyTask01[ 4 * 1024 ];
+uint32_t defaultmyTask01[ 1024 ];
 osStaticThreadDef_t myTask01ControlBlock;
 const osThreadAttr_t myTask01_attributes = {
   .name = "myTask01",
@@ -66,7 +67,7 @@ const osThreadAttr_t myTask01_attributes = {
 };
 /* Definitions for myTask03 */
 osThreadId_t myTask03Handle;
-uint32_t myTask03Buffer[ 1024 ];
+uint32_t myTask03Buffer[ 128 ];
 osStaticThreadDef_t myTask03ControlBlock;
 const osThreadAttr_t myTask03_attributes = {
   .name = "myTask03",
@@ -78,7 +79,7 @@ const osThreadAttr_t myTask03_attributes = {
 };
 /* Definitions for myTask02 */
 osThreadId_t myTask02Handle;
-uint32_t myTask02Buffer[ 1024 ];
+uint32_t myTask02Buffer[ 128 ];
 osStaticThreadDef_t myTask02ControlBlock;
 const osThreadAttr_t myTask02_attributes = {
   .name = "myTask02",
@@ -102,7 +103,7 @@ const osThreadAttr_t myTask04_attributes = {
 };
 /* Definitions for myTask05 */
 osThreadId_t myTask05Handle;
-uint32_t myTask05Buffer[ 1024 ];
+uint32_t myTask05Buffer[ 128 ];
 osStaticThreadDef_t myTask05ControlBlock;
 const osThreadAttr_t myTask05_attributes = {
   .name = "myTask05",
@@ -116,7 +117,7 @@ const osThreadAttr_t myTask05_attributes = {
 osThreadId_t myTask06Handle;
 const osThreadAttr_t myTask06_attributes = {
   .name = "myTask06",
-  .stack_size = 1024,
+  .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
 
@@ -247,7 +248,7 @@ void MX_FREERTOS_Init(void) {
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
-//	setbuf(stdout, NULL);
+
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
@@ -293,12 +294,12 @@ int __io_putchar(int ch)
 /* USER CODE END Header_StartmyTask01 */
 void StartmyTask01(void *argument)
 {
+
   /* USER CODE BEGIN StartmyTask01 */
   /* Infinite loop */
   for(;;)
   {
-	CLI_Command();
-
+	 CLI_Command();
 	osDelay(1000);
   }
   /* USER CODE END StartmyTask01 */
@@ -317,6 +318,7 @@ void StartTask03(void *argument)
   /* Infinite loop */
   for(;;)
   {
+
 	  osDelay(1000);
   }
 
@@ -336,7 +338,7 @@ void StartTask02(void *argument)
   /* Infinite loop */
 	for(;;)
 	{
-	osDelay(1000);
+	osDelay(1);
 	}
 
   /* USER CODE END StartTask02 */
@@ -355,7 +357,6 @@ void StartTask04(void *argument)
   /* Infinite loop */
   for(;;)
   {
-
 	osDelay(1000);
   }
 
