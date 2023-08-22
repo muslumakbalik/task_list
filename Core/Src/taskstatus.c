@@ -15,7 +15,7 @@ void task_status(void);
 
 void task_status(void)
 {
-	char buffer[250];
+	char buffer[4 * 250];
 
 	printf("TASK         STATE     PRIO    STACK   NUM \r\n");
 	vTaskList( buffer) ;

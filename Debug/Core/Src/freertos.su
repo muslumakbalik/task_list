@@ -6,10 +6,10 @@
 ../Core/Src/freertos.c:206:6:vApplicationMallocFailedHook	4	static
 ../Core/Src/freertos.c:222:6:vApplicationDaemonTaskStartupHook	4	static
 ../Core/Src/freertos.c:232:6:MX_FREERTOS_Init	8	static
-../Core/Src/freertos.c:284:5:__io_putchar	16	static
-../Core/Src/freertos.c:295:6:StartmyTask01	16	static
-../Core/Src/freertos.c:315:6:StartTask03	16	static
-../Core/Src/freertos.c:335:6:StartTask02	16	static
-../Core/Src/freertos.c:354:6:StartTask04	16	static
-../Core/Src/freertos.c:373:6:StartTask05	16	static
-../Core/Src/freertos.c:391:6:StartTask06	16	static
+../Core/Src/freertos.c:285:5:__io_putchar	16	static
+../Core/Src/freertos.c:296:6:StartmyTask01	16	static
+../Core/Src/freertos.c:316:6:StartTask03	16	static
+../Core/Src/freertos.c:336:6:StartTask02	16	static
+../Core/Src/freertos.c:355:6:StartTask04	16	static
+../Core/Src/freertos.c:374:6:StartTask05	16	static
+../Core/Src/freertos.c:392:6:StartTask06	16	static

@@ -55,7 +55,7 @@ typedef StaticTask_t osStaticThreadDef_t;
 /* USER CODE END Variables */
 /* Definitions for myTask01 */
 osThreadId_t myTask01Handle;
-uint32_t defaultmyTask01[ 1024 ];
+uint32_t defaultmyTask01[ 4* 1024 ];
 osStaticThreadDef_t myTask01ControlBlock;
 const osThreadAttr_t myTask01_attributes = {
   .name = "myTask01",
@@ -281,6 +281,7 @@ void MX_FREERTOS_Init(void) {
 }
 
 /* USER CODE BEGIN Header_StartmyTask01 */
+
 int __io_putchar(int ch)
 {
       HAL_UART_Transmit(&huart3, (uint8_t *)&ch, 1, 100);
@@ -318,8 +319,8 @@ void StartTask03(void *argument)
   /* Infinite loop */
   for(;;)
   {
-
-	  osDelay(1000);
+//	  CPU_Load1(30, 1000);
+	  osDelay(1);
   }
 
   /* USER CODE END StartTask03 */

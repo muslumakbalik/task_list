@@ -9,8 +9,6 @@
 #include "stdio.h"
 
 
-
-
 void CPU_Load(TickType_t BlockRate , TickType_t TotalRunTime)
 {
 	TickType_t start_time,start_time1,block_time = (TotalRunTime * BlockRate) / 100;
@@ -27,7 +25,7 @@ void CPU_Load(TickType_t BlockRate , TickType_t TotalRunTime)
 
 
 
-
+//#if 0
 //TickType_t tickarray[100];
 //void CPU_Usage1(TickType_t stop_time, TickType_t Total_Tick, uint8_t x)
 //{
@@ -56,3 +54,4 @@ void CPU_Load(TickType_t BlockRate , TickType_t TotalRunTime)
 //
 //
 //}
+//#endif

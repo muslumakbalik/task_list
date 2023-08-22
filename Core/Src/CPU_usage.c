@@ -41,9 +41,9 @@ void CPU_usage(void)
 		for(x=0;x< ArraySize;x++)
 		{
 
-			printf("Task:%s\t\tCPUUsage:%%%u\r\n",
+			printf("Task:%s\t\tCPUUsage:%%%.3f\r\n",
 					TaskStatusArray[x].pcTaskName,
-			      (TaskStatusArray[x].ulRunTimeCounter * 100) / TotalRunTime);
+			     (float) (TaskStatusArray[x].ulRunTimeCounter * 100) / TotalRunTime);
 
 		}
 
