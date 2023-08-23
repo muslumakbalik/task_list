@@ -9,7 +9,7 @@
 ../Core/Src/freertos.c:285:5:__io_putchar	1
 ../Core/Src/freertos.c:297:6:StartmyTask01	1
 ../Core/Src/freertos.c:318:6:StartTask03	1
-../Core/Src/freertos.c:338:6:StartTask02	1
-../Core/Src/freertos.c:357:6:StartTask04	1
-../Core/Src/freertos.c:376:6:StartTask05	1
-../Core/Src/freertos.c:394:6:StartTask06	1
+../Core/Src/freertos.c:339:6:StartTask02	1
+../Core/Src/freertos.c:358:6:StartTask04	1
+../Core/Src/freertos.c:377:6:StartTask05	1
+../Core/Src/freertos.c:395:6:StartTask06	1

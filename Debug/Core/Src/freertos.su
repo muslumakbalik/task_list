@@ -9,7 +9,7 @@
 ../Core/Src/freertos.c:285:5:__io_putchar	16	static
 ../Core/Src/freertos.c:297:6:StartmyTask01	16	static
 ../Core/Src/freertos.c:318:6:StartTask03	16	static
-../Core/Src/freertos.c:338:6:StartTask02	16	static
-../Core/Src/freertos.c:357:6:StartTask04	16	static
-../Core/Src/freertos.c:376:6:StartTask05	16	static
-../Core/Src/freertos.c:394:6:StartTask06	16	static
+../Core/Src/freertos.c:339:6:StartTask02	16	static
+../Core/Src/freertos.c:358:6:StartTask04	16	static
+../Core/Src/freertos.c:377:6:StartTask05	16	static
+../Core/Src/freertos.c:395:6:StartTask06	16	static

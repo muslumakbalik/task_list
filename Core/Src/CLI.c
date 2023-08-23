@@ -11,19 +11,18 @@
 #include "stdio.h"
 #include "string.h"
 #include "main.h"
+
 #include "CPU_load.h"
 #include "CPU_usage.h"
-#include "taskstatus.h"
 #include "stdlib.h"
+#include "CLI.h"
 
 #define ESC 27
 #define BACKSPACE 32
 
-void CLI_Command (void);
-
 typedef struct {
-	TickType_t BlockRate;
-	TickType_t PeriodofTask;
+	uint32_t BlockRate;
+	uint32_t PeriodofTask;
 } CPU_Load_args_t;
 
 void vTaskFunction (void *pvParameters)
@@ -46,20 +45,25 @@ void vTaskFunction (void *pvParameters)
 void CLI_Command (void)
 {
 	static CPU_Load_args_t CPU_Load_args;
-	TaskHandle_t xHandle;
+
 	char command[1];
+
 	char command_status[32]={0};
-	char name[8]={0}; name[8]=('\0');
-	char prio[2]={0}; prio[2]=('\0');
-	char block_rate[2]={0}; block_rate[2]=('\0');
-	char period[4]={0}; period[4]=('\0');
+	char name[9]={0};
+	char prio[3]={0};
+	char block_rate[3]={0};
+	char period[5]={0};
 
 	HAL_StatusTypeDef Hal_Status;
 	int status_add;
 	int status_del;
 	int	status_print;
 	int	status_help;
-
+	TaskHandle_t xHandle;
+	name[8]=('\0');
+	prio[2]=('\0');
+	block_rate[2]=('\0');
+	period[4]=('\0');
 
 	printf("\r\n>>");// command
 	for (int i=0; i<32; i++)
@@ -91,6 +95,7 @@ void CLI_Command (void)
 			}
 		}
 	}
+
 	printf("\r\n");
 	if (command_status[8] == ('0'))
 	{
@@ -171,17 +176,16 @@ void CLI_Command (void)
 				}
 			}
 		}
-
-		TickType_t prio_number=atoi(prio);
+		TickType_t prio_number = atoi(prio);
 
 		printf("\r\n");
 		printf("please enter Task Block Rate:");
 		for (int i=0; i<2; i++)
 		{
-			Hal_Status = HAL_UART_Receive( &huart3,(uint8_t *) command,1, HAL_MAX_DELAY);
+			Hal_Status = HAL_UART_Receive( &huart3,(uint8_t *) command, 1, HAL_MAX_DELAY);
 			if(HAL_OK == Hal_Status)
 			{
-				HAL_UART_Transmit(&huart3, (uint8_t *)command,1, 1);
+				HAL_UART_Transmit(&huart3, (uint8_t *)command, 1, 1);
 				block_rate[i] = command[0];
 				if(command[0] == ESC)
 				{
@@ -255,7 +259,7 @@ void CLI_Command (void)
 	     }
 	printf("**%s**",name);
 	printf("\r\n");
-	xHandle=xTaskGetHandle((char *)name);
+	xHandle=xTaskGetHandle(name);
 		if (xHandle != NULL)
 		{
 		vTaskDelete(xHandle);
@@ -271,7 +275,6 @@ void CLI_Command (void)
 	printf("************************************** \r\n");
 	CPU_usage( );
 	printf("************************************** \r\n");
-	task_status();
 	}
 
 	else if (status_help == 0) //Help

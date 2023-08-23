@@ -55,7 +55,7 @@ typedef StaticTask_t osStaticThreadDef_t;
 /* USER CODE END Variables */
 /* Definitions for myTask01 */
 osThreadId_t myTask01Handle;
-uint32_t defaultmyTask01[ 4* 1024 ];
+uint32_t defaultmyTask01[ 10* 1024 ];
 osStaticThreadDef_t myTask01ControlBlock;
 const osThreadAttr_t myTask01_attributes = {
   .name = "myTask01",
@@ -322,6 +322,7 @@ void StartTask03(void *argument)
   for(;;)
   {
 //	  CPU_Load1(30, 1000);
+	  vTaskSuspend(myTask03Handle);
 	  osDelay(1);
   }
 

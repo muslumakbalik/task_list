@@ -48,7 +48,7 @@ Core/Src/CPU_usage.o: ../Core/Src/CPU_usage.c \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usb.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd_ex.h \
- ../Core/Inc/CLI.h
+ ../Core/Inc/CPU_usage.h
 C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
 C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
@@ -99,4 +99,4 @@ C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cms
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usb.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd_ex.h:
-../Core/Inc/CLI.h:
+../Core/Inc/CPU_usage.h:
