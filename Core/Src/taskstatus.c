@@ -8,12 +8,11 @@
 #include "FreeRTOS.h"
 #include "cmsis_os.h"
 #include "stdio.h"
+#include "taskstatus.h"
+#include "taskstatus.h"
 
 
-void task_status(void);
-
-
-void task_status(void)
+void task_status (void)
 {
 	char buffer[4 * 250];
 

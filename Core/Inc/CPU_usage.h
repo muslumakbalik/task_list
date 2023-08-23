@@ -8,6 +8,6 @@
 #ifndef SRC_CPU_USAGE_H_
 #define SRC_CPU_USAGE_H_
 
-
+extern void CPU_usage (void);
 
 #endif /* SRC_CPU_USAGE_H_ */

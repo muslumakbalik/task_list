@@ -293,6 +293,7 @@ int __io_putchar(int ch)
   * @retval None
   */
 /* USER CODE END Header_StartmyTask01 */
+
 void StartmyTask01(void *argument)
 {
 
@@ -300,8 +301,9 @@ void StartmyTask01(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	 CLI_Command();
-	osDelay(1000);
+	  extern void CLI_Command (void);
+	  CLI_Command();
+	  osDelay(1);
   }
   /* USER CODE END StartmyTask01 */
 }

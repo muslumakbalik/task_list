@@ -9,5 +9,7 @@
 #define INC_TASKSTATUS_H_
 
 
+extern void task_status (void);
+
 
 #endif /* INC_TASKSTATUS_H_ */
