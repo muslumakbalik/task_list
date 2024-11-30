@@ -64,8 +64,8 @@ all: main-build
 main-build: freertow.elf secondary-outputs
 
 # Tool invocations
-freertow.elf freertow.map: $(OBJS) $(USER_OBJS) C:\workspace1\freertow\STM32H743ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "freertow.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\workspace1\freertow\STM32H743ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="freertow.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+freertow.elf freertow.map: $(OBJS) $(USER_OBJS) C:\Users\muslu\STM32CubeIDE\workspace_1.14.1\task_list\task_list\STM32H743ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "freertow.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\muslu\STM32CubeIDE\workspace_1.14.1\task_list\task_list\STM32H743ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="freertow.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

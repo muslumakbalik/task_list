@@ -36,21 +36,21 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usb.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd_ex.h \
- C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
- C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
+ C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
+ C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Core/Inc/FreeRTOSConfig.h \
- C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
- C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
- C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
- C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
- C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
- C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
- C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
- C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
+ C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
+ C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
+ C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
+ C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
+ C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
+ C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
+ C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
  ../Core/Inc/eth.h ../Core/Inc/main.h ../Core/Inc/usart.h \
  ../Core/Inc/usb_otg.h ../Core/Inc/gpio.h \
- C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
- C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+ C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
+ C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 ../Core/Inc/main.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -89,21 +89,21 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usb.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd_ex.h:
-C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
-C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
+C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
+C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
-C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
-C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
-C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
-C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h:
-C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
-C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
-C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
-C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
+C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
+C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
+C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
+C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h:
+C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
+C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
+C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
 ../Core/Inc/eth.h:
 ../Core/Inc/main.h:
 ../Core/Inc/usart.h:
 ../Core/Inc/usb_otg.h:
 ../Core/Inc/gpio.h:
-C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
-C:/workspace1/freertow/Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
+C:/Users/muslu/STM32CubeIDE/workspace_1.14.1/task_list/task_list/Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
